@@ -6,339 +6,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Andy Nigro – Dynamics 365 Functional Consultant and UX/Product Leader based in Atlanta, GA." />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
       background: #0f172a;
       color: #e5e7eb;
     }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1.5rem;
-    }
+    a { color: inherit; text-decoration: none; }
+    .page { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
 
     header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      padding: 1.5rem 0 1rem;
-      border-bottom: 1px solid #1f2937;
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 1.5rem;
+      padding: 1.5rem 0 1rem; border-bottom: 1px solid #1f2937;
     }
-
-    .logo {
-      font-weight: 700;
-      font-size: 1.3rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    nav a {
-      margin-left: 1.25rem;
-      font-size: 0.95rem;
-      opacity: 0.85;
-    }
-
-    nav a:hover {
-      opacity: 1;
-    }
+    .logo { font-weight: 700; font-size: 1.3rem; letter-spacing: 0.04em; }
+    nav a { margin-left: 1.25rem; font-size: 0.95rem; opacity: 0.85; }
+    nav a:hover { opacity: 1; }
 
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.3fr);
-      gap: 2rem;
-      padding: 2.5rem 0 2rem;
+      display: grid; grid-template-columns: 2fr 1.2fr;
+      gap: 2rem; padding: 2.5rem 0 2rem;
       border-bottom: 1px solid #1f2937;
     }
-
-    @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav a {
-        margin-left: 0;
-        margin-right: 1rem;
-      }
-    }
+    @media (max-width: 800px) { .hero { grid-template-columns: 1fr; } }
 
     .hero-title {
       font-size: clamp(2.1rem, 4vw, 2.8rem);
-      font-weight: 700;
-      margin-bottom: 0.75rem;
+      font-weight: 700; margin-bottom: 0.75rem;
     }
+    .hero-subtitle { font-size: 1.05rem; color: #9ca3af; margin-bottom: 1.25rem; }
+    .hero-meta { font-size: 0.95rem; color: #9ca3af; margin-bottom: 1.75rem; }
 
-    .hero-subtitle {
-      font-size: 1.05rem;
-      color: #9ca3af;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-meta {
-      font-size: 0.95rem;
-      color: #9ca3af;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem; }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.7rem 1.4rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 0.95rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.15s ease;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.7rem 1.4rem; border-radius: 999px;
+      border: 1px solid transparent; font-size: 0.95rem;
+      font-weight: 500; cursor: pointer; transition: 0.15s ease;
+      white-space: nowrap;
     }
-
     .btn-primary {
       background: linear-gradient(120deg, #22c55e, #0ea5e9);
       color: #0b1120;
     }
-
-    .btn-primary:hover {
-      filter: brightness(1.05);
-      transform: translateY(-1px);
-    }
-
+    .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
     .btn-outline {
-      border-color: #374151;
-      background: transparent;
-      color: #e5e7eb;
+      border-color: #374151; background: transparent; color: #e5e7eb;
     }
-
-    .btn-outline:hover {
-      background: #111827;
-    }
+    .btn-outline:hover { background: #111827; }
 
     .hero-card {
       background: radial-gradient(circle at top, #1f2937, #020617);
-      border-radius: 1.25rem;
-      padding: 1.75rem;
-      border: 1px solid #1f2937;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+      border-radius: 1.25rem; padding: 1.75rem;
+      border: 1px solid #1f2937; box-shadow: 0 18px 45px rgba(0,0,0,0.45);
     }
-
-    .hero-card-title {
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #9ca3af;
-      margin-bottom: 0.6rem;
-    }
-
-    .hero-card h2 {
-      font-size: 1.2rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.75rem;
-    }
-
-    .pill {
-      padding: 0.25rem 0.8rem;
-      border-radius: 999px;
-      border: 1px solid #374151;
-      font-size: 0.8rem;
-      color: #d1d5db;
-      background: rgba(15, 23, 42, 0.6);
-    }
+    .hero-card-title { text-transform: uppercase; color: #9ca3af; margin-bottom: 0.6rem; }
 
     section {
-      padding: 2.5rem 0;
-      border-bottom: 1px solid #1f2937;
+      padding: 2.5rem 0; border-bottom: 1px solid #1f2937;
     }
+    section:last-of-type { border-bottom: none; padding-bottom: 3rem; }
 
-    section:last-of-type {
-      border-bottom: none;
-      padding-bottom: 3rem;
-    }
-
-    .section-title {
-      font-size: 1.3rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .section-lead {
-      color: #9ca3af;
-      font-size: 0.98rem;
-      max-width: 700px;
-      margin-bottom: 1.5rem;
-    }
+    .section-title { font-size: 1.3rem; margin-bottom: 1.25rem; }
+    .section-lead { color: #9ca3af; font-size: 0.98rem; max-width: 700px; margin-bottom: 1.5rem; }
 
     .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
-      gap: 2rem;
+      display: grid; grid-template-columns: 1.4fr 1fr; gap: 2rem;
     }
-
-    @media (max-width: 800px) {
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
 
     .card {
-      background: #020617;
-      border-radius: 1rem;
-      border: 1px solid #111827;
-      padding: 1.5rem;
-    }
-
-    .card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.75rem;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
+      background: #020617; border-radius: 1rem;
+      border: 1px solid #111827; padding: 1.5rem;
     }
 
     .bullet-list li {
-      position: relative;
-      padding-left: 1.25rem;
-      margin-bottom: 0.5rem;
-      font-size: 0.95rem;
-      color: #d1d5db;
+      position: relative; padding-left: 1.25rem;
+      margin-bottom: 0.5rem; color: #d1d5db;
     }
-
     .bullet-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: #22c55e;
+      content: "•"; position: absolute; left: 0; color: #22c55e;
     }
 
-    .tag-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
+    .tag-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .tag {
-      font-size: 0.85rem;
-      padding: 0.28rem 0.7rem;
-      border-radius: 999px;
-      background: #020617;
+      font-size: 0.85rem; padding: 0.28rem 0.7rem;
+      border-radius: 999px; background: #020617;
       border: 1px solid #1f2937;
-      color: #d1d5db;
-    }
-
-    .experience-item {
-      margin-bottom: 1.5rem;
-    }
-
-    .exp-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.3rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .exp-role {
-      font-weight: 600;
-    }
-
-    .exp-meta {
-      font-size: 0.85rem;
-      color: #9ca3af;
     }
 
     .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
       gap: 1rem;
     }
-
     .project-card {
-      background: #020617;
-      border-radius: 1rem;
-      border: 1px solid #111827;
-      padding: 1.25rem 1.4rem;
+      background: #020617; border-radius: 1rem;
+      border: 1px solid #111827; padding: 1.25rem 1.4rem;
     }
 
-    .project-card h3 {
-      font-size: 1rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .project-meta {
-      font-size: 0.8rem;
-      color: #9ca3af;
-      margin-bottom: 0.5rem;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 1.75rem;
-    }
-
-    @media (max-width: 800px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .contact-item {
-      font-size: 0.95rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .muted {
-      color: #9ca3af;
-      font-size: 0.85rem;
-    }
+    .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.75rem; }
+    @media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr; } }
 
     footer {
-      padding: 1.5rem 0 0.75rem;
-      font-size: 0.8rem;
-      color: #6b7280;
-      text-align: center;
+      padding: 1.5rem 0 0.75rem; font-size: 0.8rem;
+      text-align: center; color: #6b7280;
     }
   </style>
 </head>
 <body>
   <div class="page">
+
     <header>
       <div class="logo">Andy Nigro</div>
       <nav>
@@ -347,268 +127,91 @@
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Portfolio</a>
+        <a href="Andy_Nigro_Resume.pdf" download>Résumé</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
     <main>
-      <!-- HERO -->
       <section class="hero">
         <div>
           <h1 class="hero-title">Dynamics 365 Functional Consultant & UX / Product Leader</h1>
+
           <p class="hero-subtitle">
             I help organizations turn complex, real-world processes into intuitive, data-driven digital experiences.
           </p>
-          <p class="hero-meta">
-            Atlanta, GA · Open to remote and hybrid roles · Former Director of Software Design with 20+ years in SaaS, UX, and data-heavy products.
-          </p>
+
+          <p class="hero-meta">Atlanta, GA · Open to remote roles · 20+ years in SaaS, UX, and enterprise workflow systems.</p>
+
           <div class="hero-buttons">
             <a href="#contact" class="btn btn-primary">Contact Me</a>
             <a href="#projects" class="btn btn-outline">View Portfolio</a>
+
+            <!-- ✅ DOWNLOAD RESUME BUTTON -->
+            <a href="Andy_Nigro_Resume.pdf" class="btn btn-outline" download>
+              📄 Download Résumé
+            </a>
           </div>
         </div>
 
         <aside class="hero-card">
           <div class="hero-card-title">Snapshot</div>
           <h2>What I Bring</h2>
-          <p style="font-size:0.9rem; color:#d1d5db; margin-bottom:0.75rem;">
-            25+ years building and leading customer-centric software for early childhood education and compliance-driven organizations.
-          </p>
+          <p>25+ years designing and delivering customer-centric, data-rich software solutions.</p>
+
           <div class="hero-pill-list">
-            <span class="pill">Dynamics 365 Customer Experience</span>
-            <span class="pill">Business & UX Analysis</span>
-            <span class="pill">Process Design</span>
-            <span class="pill">Product Leadership</span>
-            <span class="pill">Stakeholder Workshops</span>
+            <span class="tag">Dynamics 365 CE</span>
+            <span class="tag">Business Analysis</span>
+            <span class="tag">UX Leadership</span>
+            <span class="tag">Process Design</span>
+            <span class="tag">CRM Consulting</span>
           </div>
         </aside>
       </section>
 
-      <!-- ABOUT -->
       <section id="about">
         <h2 class="section-title">About</h2>
         <p class="section-lead">
-          I’m a former Director of UI/UX and Product Design who has spent most of my career at the intersection
-          of <strong>business requirements, user experience, and data-driven software</strong>. I’m now focused on
-          Dynamics 365 Functional Consulting — especially in customer experience, CRM, and process-heavy workflows.
+          I’m a former Director of UI/UX and Product Design transitioning into Dynamics 365
+          Functional Consulting — with deep experience in CRM, workflow design, user experience,
+          and data-driven enterprise systems.
         </p>
-
-        <div class="two-col">
-          <div>
-            <div class="card">
-              <h3>How I Work</h3>
-              <ul class="bullet-list">
-                <li>Partner with business stakeholders to understand goals, constraints, and success metrics.</li>
-                <li>Translate messy, real-world workflows into clear requirements, user journeys, and system designs.</li>
-                <li>Design and validate solutions using prototypes, workshops, and iterative feedback.</li>
-                <li>Collaborate closely with engineering to ensure delivery matches intent and user needs.</li>
-              </ul>
-            </div>
-          </div>
-          <div>
-            <div class="card">
-              <h3>Focus Areas</h3>
-              <ul class="bullet-list">
-                <li>CRM & customer experience workflows.</li>
-                <li>Data capture, reporting, and compliance-driven systems.</li>
-                <li>Configuring and extending Dynamics 365 Customer Experience.</li>
-                <li>Coaching teams on user-centered, outcome-driven design.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </section>
 
-      <!-- DYNAMICS -->
       <section id="dynamics">
         <h2 class="section-title">Dynamics 365 & CRM</h2>
-        <p class="section-lead">
-          I’m transitioning my deep experience in SaaS, UX, and compliance-driven data systems into the
-          Dynamics 365 ecosystem — with a focus on Customer Experience and Functional Consulting.
-        </p>
-
-        <div class="two-col">
-          <div>
-            <div class="card">
-              <h3>What I Offer as a Functional Consultant</h3>
-              <ul class="bullet-list">
-                <li>Requirements discovery: workshops, interviews, and process mapping for CRM scenarios.</li>
-                <li>Mapping business processes to Dynamics 365 capabilities (Sales, Service, CX).</li>
-                <li>Configuring entities, forms, views, and basic automations to support day-to-day operations.</li>
-                <li>Designing reports and dashboards that help leaders make better decisions.</li>
-              </ul>
-            </div>
-          </div>
-          <div>
-            <div class="card">
-              <h3>Strengths I Bring from Product & UX</h3>
-              <ul class="bullet-list">
-                <li>Ability to “speak business” and “speak tech” in the same conversation.</li>
-                <li>Years of experience with user research, feedback loops, and iterative design.</li>
-                <li>Track record of reducing development time and improving product adoption.</li>
-                <li>Comfort with complex, regulated domains (early childhood education & federal grants).</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <p class="section-lead">Focused on Customer Experience, CRM workflows, and process automation.</p>
       </section>
 
-      <!-- EXPERIENCE -->
       <section id="experience">
         <h2 class="section-title">Experience</h2>
-        <p class="section-lead">
-          A brief overview of my recent roles. Full history available on my LinkedIn profile.
-        </p>
-
-        <div class="experience-item">
-          <div class="exp-header">
-            <div class="exp-role">Director of UI / UX & Product Design</div>
-            <div class="exp-meta">ChildPlus Software · Atlanta, GA</div>
-          </div>
-          <div class="exp-meta">2006 – 2024</div>
-          <ul class="bullet-list" style="margin-top:0.4rem;">
-            <li>Led the UI/UX and product design function for a leading data system used by 1,800+ early childhood programs.</li>
-            <li>Partnered with engineering and stakeholders to significantly reduce development time and improve delivery quality.</li>
-            <li>Designed and oversaw key modules for data collection, reporting, compliance, and program performance.</li>
-            <li>Supported sales and customer success efforts through demos, training, and conference presentations.</li>
-          </ul>
-        </div>
-
-        <div class="experience-item">
-          <div class="exp-header">
-            <div class="exp-role">Director of Technical Support</div>
-            <div class="exp-meta">ChildPlus Software · Atlanta, GA</div>
-          </div>
-          <div class="exp-meta">2000 – 2006</div>
-          <ul class="bullet-list" style="margin-top:0.4rem;">
-            <li>Managed technical support operations for a growing SaaS customer base.</li>
-            <li>Developed support processes and training that improved customer satisfaction.</li>
-            <li>Built a deep understanding of real-world user needs that informed future product design.</li>
-          </ul>
-        </div>
+        <p class="section-lead">Full details available on my résumé.</p>
       </section>
 
-      <!-- SKILLS -->
       <section id="skills">
         <h2 class="section-title">Skills & Certifications</h2>
-
-        <div class="two-col">
-          <div>
-            <h3 style="margin-bottom:0.5rem;">Core Skills</h3>
-            <div class="tag-grid" style="margin-bottom:1.25rem;">
-              <span class="tag">Dynamics 365 Customer Experience</span>
-              <span class="tag">Functional Consulting</span>
-              <span class="tag">Business Analysis</span>
-              <span class="tag">Requirements Gathering</span>
-              <span class="tag">Process Mapping</span>
-              <span class="tag">UX / UI Design Leadership</span>
-              <span class="tag">Product Strategy</span>
-              <span class="tag">Stakeholder Management</span>
-              <span class="tag">Data-Driven Design</span>
-              <span class="tag">Agile & Iterative Delivery</span>
-              <span class="tag">Azure DevOps</span>
-              <span class="tag">Figma</span>
-            </div>
-          </div>
-
-          <div>
-            <h3 style="margin-bottom:0.5rem;">Certifications & Tools</h3>
-            <ul class="bullet-list">
-              <li>Microsoft Certified: Dynamics 365 Customer Experience Analyst Associate (MB-280).</li>
-              <li>Multiple UX, product discovery, and design leadership certifications.</li>
-              <li>Hands-on experience with Azure DevOps, Figma, Adobe Creative Cloud, and Microsoft 365.</li>
-            </ul>
-          </div>
-        </div>
       </section>
 
-      <!-- PROJECTS / PORTFOLIO -->
       <section id="projects">
-        <h2 class="section-title">Portfolio & Sample Work</h2>
-        <p class="section-lead">
-          Below are examples of the types of projects I’ve worked on. I’m happy to walk through these in more
-          detail during a conversation or interview.
-        </p>
-
-        <div class="project-grid">
-          <div class="project-card">
-            <h3>CRM & Enrollment Workflow Redesign</h3>
-            <div class="project-meta">Discovery · Process Design · UX · Data</div>
-            <p style="font-size:0.9rem;">
-              Led discovery sessions with program staff to map the full enrollment and case-management
-              lifecycle, then redesigned the data entry and reporting flows to reduce duplicate work and
-              improve data quality.
-            </p>
-          </div>
-
-          <div class="project-card">
-            <h3>Compliance & Reporting Dashboards</h3>
-            <div class="project-meta">Reporting · Dashboards · Stakeholder Alignment</div>
-            <p style="font-size:0.9rem;">
-              Worked with leadership teams to define key metrics, then designed dashboards and reports that
-              made compliance and performance trends visible and actionable.
-            </p>
-          </div>
-
-          <div class="project-card">
-            <h3>New Module Design for Assessment Data</h3>
-            <div class="project-meta">Product Strategy · UX · Data Modeling</div>
-            <p style="font-size:0.9rem;">
-              Partnered with an external organization to design a new assessment module, aligning technical
-              constraints with real-world classroom practices and reporting needs.
-            </p>
-          </div>
-        </div>
+        <h2 class="section-title">Portfolio</h2>
       </section>
 
-      <!-- CONTACT -->
       <section id="contact">
         <h2 class="section-title">Contact</h2>
-
-        <div class="contact-grid">
-          <div>
-            <p class="section-lead">
-              Interested in working together, discussing a Dynamics 365 project, or exploring how my background
-              might support your team? Reach out — I’d be happy to connect.
-            </p>
-            <div class="contact-item"><strong>Email:</strong> <a href="mailto:andy@andynigro.com">andy@andynigro.com</a></div>
-            <div class="contact-item"><strong>Location:</strong> Atlanta, GA (Open to remote)</div>
-            <div class="contact-item"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/andy-nigro-7b36649" target="_blank" rel="noopener">linkedin.com/in/andy-nigro-7b36649</a></div>
-          </div>
-
-          <div class="card">
-            <h3>Quick Contact Form (Example)</h3>
-            <p class="muted" style="margin-bottom:0.75rem;">
-              You can implement this as a real form using your hosting provider or a service like Formspree,
-              HubSpot, or your WordPress contact form plugin.
-            </p>
-            <form>
-              <div style="margin-bottom:0.6rem;">
-                <label for="name" class="muted">Name</label><br />
-                <input id="name" type="text" style="width:100%; padding:0.45rem 0.6rem; border-radius:0.5rem; border:1px solid #1f2937; background:#020617; color:#e5e7eb;" />
-              </div>
-              <div style="margin-bottom:0.6rem;">
-                <label for="email" class="muted">Email</label><br />
-                <input id="email" type="email" style="width:100%; padding:0.45rem 0.6rem; border-radius:0.5rem; border:1px solid #1f2937; background:#020617; color:#e5e7eb;" />
-              </div>
-              <div style="margin-bottom:0.8rem;">
-                <label for="message" class="muted">Message</label><br />
-                <textarea id="message" rows="3" style="width:100%; padding:0.45rem 0.6rem; border-radius:0.5rem; border:1px solid #1f2937; background:#020617; color:#e5e7eb;"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary" style="width:100%;">Send</button>
-            </form>
-          </div>
-        </div>
+        <p class="section-lead">Email: <a href="mailto:andy@andynigro.com">andy@andynigro.com</a></p>
       </section>
+
     </main>
 
     <footer>
-      © <span id="year"></span> Andy Nigro · andynigro.com
+      © <span id="year"></span> Andy Nigro · andynigro.com  
     </footer>
+
   </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
